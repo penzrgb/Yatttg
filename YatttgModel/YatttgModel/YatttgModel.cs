@@ -33,6 +33,11 @@ namespace YatttgModel
             currentGameState_ = Constant.GameState.PlayerInfo;
         }
 
+        public Cell[,] GetGrid()
+        {
+            return cm_.Grid;
+        }
+
         Player IYatttgFacade.CreatePlayer(string name, char marker)
         {
             return PlayerFactory.CreatePlayer(this, name, marker);
@@ -81,6 +86,6 @@ namespace YatttgModel
                 return false;
             else
                 return true;
-        }
+        }        
     }
 }
