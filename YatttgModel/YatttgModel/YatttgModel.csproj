@@ -47,7 +47,6 @@
     <Compile Include="IMarker.cs" />
     <Compile Include="Nort.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IYatttgFacade.cs" />
     <Compile Include="YatttgModel.cs" />

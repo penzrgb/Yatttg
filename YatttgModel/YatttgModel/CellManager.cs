@@ -20,12 +20,17 @@ namespace YatttgModel
         {
             // 3x3 matrix
             Grid = new Cell[Constant.GridSize, Constant.GridSize];
+
+            for (int i = 0; i < Constant.GridSize; i++)
+                for (int j = 0; j < Constant.GridSize; j++)
+                    Grid[i, j] = new Cell();
+
             AllocCount = 0;
         }
 
         internal void SetCellAtIndex(int index, IMarker marker)
         {
-            if (GetCellAtIndex(index) != null)
+            if (GetCellAtIndex(index).Marker != null)
                 throw new ArgumentException("This cell is occupied!");
             else
             {

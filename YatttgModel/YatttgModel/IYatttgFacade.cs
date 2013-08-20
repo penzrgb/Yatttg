@@ -11,8 +11,7 @@ namespace YatttgModel
         Nort Nort { get; set; }
         Cross Cross { get; set; }
         Cell[,] GetGrid();
-        Player CreatePlayer(string name, char marker);
-        void InitGame(Player p1, Player p2);
+        Constant.GameState InitGame(Player p1, Player p2);
         Constant.GameState MakeMove(Player player, int position);
         Player StartNextTurn();
     }

@@ -17,8 +17,8 @@ namespace YatttgModel
         }
 
         public const int MaxOptions = 9;
+        public const int GridSize = 3;
 
-        internal const int GridSize = 3;
         internal const char NortDefault = 'O';
         internal const char CrossDefault = 'X';
     }

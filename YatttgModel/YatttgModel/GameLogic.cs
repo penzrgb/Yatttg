@@ -20,9 +20,9 @@ namespace YatttgModel
             {
                 // We only need to check the grid for the marker that has
                 // just been placed down.
-                result = CheckRows(cm, m, currentGameState);
-                result = CheckColumns(cm, m, currentGameState);
-                result = CheckDiagonals(cm, m, currentGameState);
+                result = CheckRows(cm, m, result);
+                result = CheckColumns(cm, m, result);
+                result = CheckDiagonals(cm, m, result);
             }
 
             return result;
@@ -41,8 +41,11 @@ namespace YatttgModel
                 int cnt = 0;
                 for (int column = 0; column < Constant.GridSize; column++)
                 {
-                    if (cm.Grid[row, column].Marker.Equals(m))
+                    if (cm.Grid[row, column].Marker != null &&
+                        cm.Grid[row, column].Marker.Equals(m))
+                    {
                         cnt++;
+                    }
                 }
 
                 if (cnt == Constant.GridSize)
@@ -65,7 +68,8 @@ namespace YatttgModel
                 int cnt = 0;
                 for (int row = 0; row < Constant.GridSize; row++)
                 {
-                    if (cm.Grid[row, column].Marker.Equals(m))
+                    if (cm.Grid[row, column].Marker != null &&
+                        cm.Grid[row, column].Marker.Equals(m))
                         cnt++;
                 }
 
@@ -89,7 +93,8 @@ namespace YatttgModel
             // Check leading diagonal.
             for (int i = 0; i < Constant.GridSize; i++)
             {
-                if (cm.Grid[i, i].Marker.Equals(m))
+                if (cm.Grid[i, i].Marker != null &&
+                    cm.Grid[i, i].Marker.Equals(m))
                     cnt++;
             }
 
@@ -99,9 +104,10 @@ namespace YatttgModel
             {
                 // Reset the counter, check antidiagonal.
                 cnt = 0;
-                for (int i = 2; i >= 0; i--)
+                for (int i = 0; i < Constant.GridSize; i++)
                 {
-                    if (cm.Grid[i, i].Marker.Equals(m))
+                    if (cm.Grid[i, Constant.GridSize - 1 - i].Marker != null &&
+                            cm.Grid[i, Constant.GridSize - 1 - i].Marker.Equals(m))
                         cnt++;
                 }
 

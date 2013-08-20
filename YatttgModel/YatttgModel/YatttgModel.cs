@@ -33,17 +33,12 @@ namespace YatttgModel
             currentGameState_ = Constant.GameState.PlayerInfo;
         }
 
-        public Cell[,] GetGrid()
+        Cell[,] IYatttgFacade.GetGrid()
         {
             return cm_.Grid;
         }
 
-        Player IYatttgFacade.CreatePlayer(string name, char marker)
-        {
-            return PlayerFactory.CreatePlayer(this, name, marker);
-        }
-
-        void IYatttgFacade.InitGame(Player p1, Player p2)
+        Constant.GameState IYatttgFacade.InitGame(Player p1, Player p2)
         {
             p1_ = p1;
             p2_ = p2;
@@ -56,14 +51,20 @@ namespace YatttgModel
 
             // Game is now running.
             currentGameState_ = Constant.GameState.InProgress;
+            return currentGameState_;
         }
 
         Constant.GameState IYatttgFacade.MakeMove(Player player, int position)
         {
+            // To match up with internal array range.
+            position--;
+
             // Update the grid
             cm_.SetCellAtIndex(position, player.Marker);
 
-            currentGameState_ = GameLogic.CheckGridForWinner(cm_, player.Marker, currentGameState_);
+            currentGameState_ = GameLogic.CheckGridForWinner(cm_, player.Marker, 
+                currentGameState_);
+
             return currentGameState_;
         }
 
@@ -86,6 +87,6 @@ namespace YatttgModel
                 return false;
             else
                 return true;
-        }        
+        }
     }
 }
