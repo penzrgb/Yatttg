@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    class Nort : Marker
+    class Nort : AbstractMarker
     {
+        public Nort()
+        {
+            // Default value for Nort's character.
+            this.Character = Constants.NortDefault;
+        }
     }
 }

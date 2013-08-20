@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    interface Marker
+    interface IMarker
     {
+        char Character { get; set; }
     }
 }

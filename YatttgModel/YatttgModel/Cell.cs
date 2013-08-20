@@ -8,6 +8,12 @@ namespace YatttgModel
 {
     class Cell
     {
-        public Marker Marker { get; set; }
+        public IMarker Marker { get; set; }
+
+        public Cell()
+        {
+            // Set the cell to not have a marker by default.
+            this.Marker = null;
+        }
     }
 }

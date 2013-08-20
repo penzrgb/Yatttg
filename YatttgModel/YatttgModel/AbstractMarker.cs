@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    interface YatttgFacade
+    abstract class AbstractMarker : IMarker
     {
+        public char Character
+        {
+            get;
+            set;
+        }
     }
 }
