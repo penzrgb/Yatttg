@@ -46,6 +46,9 @@ namespace YatttgModel
             // Flip a coin on who should start first.
             p1Turn = RandomFirstTurn();
 
+            // Init grid
+            cm_.InitGrid();
+
             // Game is now running.
             currentGameState_ = Constant.GameState.InProgress;
         }

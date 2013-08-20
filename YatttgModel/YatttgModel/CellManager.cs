@@ -19,7 +19,7 @@ namespace YatttgModel
         internal void InitGrid()
         {
             // 3x3 matrix
-            Grid = new Cell[3, 3];
+            Grid = new Cell[Constant.GridSize, Constant.GridSize];
             AllocCount = 0;
         }
 
@@ -29,8 +29,8 @@ namespace YatttgModel
                 throw new ArgumentException("This cell is occupied!");
             else
             {
-                int row = index / 3;
-                int column = index % 3;
+                int row = index / Constant.GridSize;
+                int column = index % Constant.GridSize;
 
                 Grid[row, column] = new Cell(marker);
                 AllocCount++;
@@ -39,8 +39,8 @@ namespace YatttgModel
 
         private Cell GetCellAtIndex(int index)
         {
-            int row = index / 3;
-            int column = index % 3;
+            int row = index / Constant.GridSize;
+            int column = index % Constant.GridSize;
             return Grid[row, column];
         }
     }

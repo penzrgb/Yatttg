@@ -36,16 +36,16 @@ namespace YatttgModel
             if (result == Constant.GameState.Win)
                 return result;
 
-            for (int row = 0; row < 3; row++)
+            for (int row = 0; row < Constant.GridSize; row++)
             {
                 int cnt = 0;
-                for (int column = 0; column < 3; column++)
+                for (int column = 0; column < Constant.GridSize; column++)
                 {
                     if (cm.Grid[row, column].Marker.Equals(m))
                         cnt++;
                 }
 
-                if (cnt == 3)
+                if (cnt == Constant.GridSize)
                     return Constant.GameState.Win;
             }
 
@@ -60,16 +60,16 @@ namespace YatttgModel
             if (result == Constant.GameState.Win)
                 return result;
 
-            for (int column = 0; column < 3; column++)
+            for (int column = 0; column < Constant.GridSize; column++)
             {
                 int cnt = 0;
-                for (int row = 0; row < 3; row++)
+                for (int row = 0; row < Constant.GridSize; row++)
                 {
                     if (cm.Grid[row, column].Marker.Equals(m))
                         cnt++;
                 }
 
-                if (cnt == 3)
+                if (cnt == Constant.GridSize)
                     return Constant.GameState.Win;
             }
 
@@ -87,13 +87,13 @@ namespace YatttgModel
             int cnt = 0;
 
             // Check leading diagonal.
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Constant.GridSize; i++)
             {
                 if (cm.Grid[i, i].Marker.Equals(m))
                     cnt++;
             }
 
-            if (cnt == 3)
+            if (cnt == Constant.GridSize)
                 return Constant.GameState.Win;
             else
             {
@@ -105,7 +105,7 @@ namespace YatttgModel
                         cnt++;
                 }
 
-                if (cnt == 3)
+                if (cnt == Constant.GridSize)
                     return Constant.GameState.Win;
             }
 
