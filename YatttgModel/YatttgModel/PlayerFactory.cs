@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    static class PlayerFactory
+    internal static class PlayerFactory
     {
         internal static Player CreatePlayer(YatttgModel ym, string name, char marker)
         {

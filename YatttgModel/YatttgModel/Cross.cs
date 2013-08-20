@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    class Cross : AbstractMarker
+    public class Cross : IMarker
     {
+        public char Character
+        {
+            get;
+            set;
+        }
+
         public Cross()
         {
             // Default value for Cross's character.
-            this.Character = Constants.CrossDefault;
+            this.Character = Constant.CrossDefault;
         }
     }
 }

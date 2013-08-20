@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    class Player
+    public class Player
     {
         public string Name { get; set; }
         public IMarker Marker { get; set; }

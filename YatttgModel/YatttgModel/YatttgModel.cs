@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    class YatttgModel : IYatttgFacade
+    public class YatttgModel : IYatttgFacade
     {
         Player p1_, p2_;
-
         bool p1Turn;
-        Constants.GameState currentGameState_;
+
+        CellManager cm_;
+        Constant.GameState currentGameState_;
 
         public Nort Nort { get; set; }
         public Cross Cross { get; set; }
@@ -26,8 +27,10 @@ namespace YatttgModel
             Nort = new Nort();
             Cross = new Cross();
 
+            cm_ = new CellManager();
+
             // Initial state is to get player information.
-            currentGameState_ = Constants.GameState.PlayerInfo;
+            currentGameState_ = Constant.GameState.PlayerInfo;
         }
 
         Player IYatttgFacade.CreatePlayer(string name, char marker)
@@ -44,13 +47,15 @@ namespace YatttgModel
             p1Turn = RandomFirstTurn();
 
             // Game is now running.
-            currentGameState_ = Constants.GameState.InProgress;
+            currentGameState_ = Constant.GameState.InProgress;
         }
 
-        Constants.GameState IYatttgFacade.MakeMove(Player player, int position)
+        Constant.GameState IYatttgFacade.MakeMove(Player player, int position)
         {
-            // TODO: Making a move logic.
+            // Update the grid
+            cm_.SetCellAtIndex(position, player.Marker);
 
+            currentGameState_ = GameLogic.CheckGridForWinner(cm_, player.Marker, currentGameState_);
             return currentGameState_;
         }
 

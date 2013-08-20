@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    class Cell
+    internal class Cell
     {
         public IMarker Marker { get; set; }
 
@@ -14,6 +14,11 @@ namespace YatttgModel
         {
             // Set the cell to not have a marker by default.
             this.Marker = null;
+        }
+
+        public Cell(IMarker marker)
+        {
+            this.Marker = marker;
         }
     }
 }

@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    class Nort : AbstractMarker
+    public class Nort : IMarker
     {
+        public char Character
+        {
+            get;
+            set;
+        }
+
         public Nort()
         {
             // Default value for Nort's character.
-            this.Character = Constants.NortDefault;
+            this.Character = Constant.NortDefault;
         }
     }
 }

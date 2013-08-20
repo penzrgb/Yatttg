@@ -39,11 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractMarker.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="CellManager.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="Constant.cs" />
     <Compile Include="Cross.cs" />
+    <Compile Include="GameLogic.cs" />
     <Compile Include="IMarker.cs" />
     <Compile Include="Nort.cs" />
     <Compile Include="Player.cs" />

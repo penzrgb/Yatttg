@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YatttgModel
 {
-    static class Constants
+    public static class Constant
     {
         public enum GameState : int
         {
@@ -15,6 +15,8 @@ namespace YatttgModel
             Win = 2,
             Tie = 3
         }
+
+        public const int MaxOptions = 9;
 
         internal const char NortDefault = 'O';
         internal const char CrossDefault = 'X';
